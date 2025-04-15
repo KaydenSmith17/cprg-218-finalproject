@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shangri La Beach Resort</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function showPage(pageId) {
+      var pages = document.getElementsByClassName('page');
+      for (var i = 0; i < pages.length; i++) {
+        pages[i].classList.remove('active');
+      }
+      document.getElementById(pageId).classList.add('active');
+    }
+    
+    // Function to toggle the booking modal.
+    function toggleModal() {
+      alert("Booking modal functionality is not implemented yet.");
+    }
+    
+    // Set default page to Home on page load.
+    window.onload = function() {
+      showPage('home');
+    }
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <img src="shangrila.png" alt="Shangri La Logo">
+  <nav>
+    <ul>
+      <li><a onclick="showPage('home')">Home</a></li>
+      <li><a onclick="showPage('accommodations')">Accommodations</a></li>
+      <li><a onclick="showPage('amenities')">Amenities</a></li>
+      <li><a onclick="showPage('dining')">Dining</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+      <li><a onclick="showPage('book')">Book Now</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Modal Container (Hidden by Default) -->
+  <div id="modal-overlay"></div>
+  
+  <!-- Home Page -->
+  <div id="home" class="page">
+    <img src="/Users/Kayde/Repos/final/white-sand-beach.png" alt="White Sand Beach">
+    <header class="home-header">
+      <h1>Shangri La Beach Resort - Your Dream Getaway</h1>
+      <h2>Escape to Paradise</h2>
+      <div id="weather"></div>
+      <p>Indulge in luxury and breathtaking views at Shangri La Beach Resort.</p>
+    </header>
+    
+    <div class="inside-hero">
+      <div class="search-field">
+        <label>Destination</label>
+        <input type="text" placeholder="Where to?" />
+      </div>
+      <div class="search-field">
+        <label>Check-in</label>
+        <input type="date" id="inline-checkin" />
+      </div>
+      <div class="search-field">
+        <label>Check-out</label>
+        <input type="date" id="inline-checkout" />
+      </div>
+      <button class="search-btn" onclick="openBookingModal()">Book Now</button>
+    </div>
+    
+    <section>
+      <h3>Experience Unforgettable Moments</h3>
+      <ul class="amenities-list">
+        <li>
+          <strong>Private Beach Access</strong><br>
+          Step onto our pristine, white-sand beach.
+        </li>
+        <li>
+          <strong>Infinity Pool</strong><br>
+          Relax by our stunning oceanfront infinity pool.
+        </li>
+        <li>
+          <strong>World-Class Spa</strong><br>
+          Rejuvenate your mind and body at our spa.
+        </li>
+        <li>
+          <strong>Exquisite Dining</strong><br>
+          Savor culinary delights at our restaurants.
+        </li>
+      </ul>
+    </section>
+    
+    <section>
+      <h3>Our Luxurious Accommodations</h3>
+      <ul class="accommodations-list">
+        <li>
+          <strong>Ocean View Deluxe Room</strong><br>
+          Enjoy stunning ocean views from your private balcony.
+          <span class="view-details" data-details="<p>More details coming soon!</p>">[View Details]</span>
+        </li>
+        <li>
+          <strong>Beachfront Suite</strong><br>
+          Step directly onto the sand from your spacious suite.
+          <span class="view-details" data-details="<p>More details coming soon!</p>">[View Details]</span>
+        </li>
+        <li>
+          <strong>Garden View Family Room</strong><br>
+          Perfect for families, with ample space and garden views.
+          <span class="view-details" data-details="<p>More details coming soon!</p>">[View Details]</span>
+        </li>
+      </ul>
+    </section>
+    
+    <!-- Reviews Section -->
+    <section class="reviews">
+      <h2>What Our Guests Are Saying</h2>
+      <p>Read about the wonderful experiences our guests have had at Shangri La Beach Resort.</p>
+      <div class="review">
+        <p>"Our stay at Shangri La was absolutely perfect! The service was impeccable, the food was delicious, and the views were breathtaking. We especially loved relaxing by the infinity pool. We can't wait to return!"</p>
+        <footer>- Sarah M.</footer>
+      </div>
+      <div class="review">
+        <p>"The beachfront suite was amazing! Waking up to the sound of the waves and stepping right onto the sand was incredible. The resort offered so many activities, we never had a dull moment. Highly recommend the snorkeling!"</p>
+        <footer>- John B.</footer>
+      </div>
+      <div class="review">
+        <p>"We traveled with our two young children, and the Kids' Club was a lifesaver! The staff were fantastic, and our kids had a blast. This allowed us some much-needed relaxation time. The resort is very family-friendly."</p>
+        <footer>- Emily K.</footer>
+      </div>
+      <div class="review">
+        <p>"The spa experience was divine. The therapists were skilled, and the atmosphere was so peaceful. It was the perfect way to unwind and de-stress. We left feeling completely rejuvenated."</p>
+        <footer>- David L.</footer>
+      </div>
+      <div class="review">
+        <p>"From the moment we arrived, the staff made us feel welcome and well taken care of. The attention to detail was outstanding. Shangri La truly lives up to its name - a little slice of paradise!"</p>
+        <footer>- Jessica P.</footer>
+      </div>
+      <p>
+        We are always striving to provide exceptional experiences for our guests. If you have enjoyed your stay at Shangri La Beach Resort, we would love to hear from you!
+      </p>
+    </section>
+  </div>
+  
+  <!-- Accommodations Page -->
+  <div id="accommodations" class="page">
+    <h1>Accommodations</h1>
+    <section class="accom-section">
+      <h2>Our Luxurious Guest Rooms</h2>
+      <p>
+        Experience unparalleled comfort and breathtaking views in our range of elegantly
+        appointed guest rooms and suites.
+      </p>
+      <div class="room">
+        <h3>Ocean View Deluxe Room</h3>
+        <img src="Ocean view.png" alt="Ocean View Deluxe Room" class="accomm-image" />
+        <p>
+          Indulge in stunning panoramic views of the ocean from your private balcony.
+          These rooms offer a perfect blend of comfort and style.
+        </p>
+        <ul>
+          <li>King-sized bed</li>
+          <li>Private balcony with ocean view</li>
+          <li>En-suite bathroom with rain shower</li>
+          <li>Seating area</li>
+          <li>Complimentary Wi-Fi</li>
+          <li>Flat-screen TV</li>
+          <li>Mini-bar</li>
+        </ul>
+      </div>
+      <div class="room">
+        <h3>Beachfront Suite</h3>
+        <img src="Beach front.png" alt="Beachfront Suite" class="accomm-image" />
+        <p>
+          Step directly onto the sand from your spacious suite. Enjoy the ultimate
+          beachfront experience with added luxury and privacy.
+        </p>
+        <ul>
+          <li>King-sized bed</li>
+          <li>Separate living area</li>
+          <li>Private terrace with direct beach access</li>
+          <li>En-suite bathroom with soaking tub and separate shower</li>
+          <li>Dining area</li>
+          <li>Complimentary Wi-Fi</li>
+          <li>Multiple flat-screen TVs</li>
+          <li>Mini-bar</li>
+        </ul>
+      </div>
+      <div class="room">
+        <h3>Garden View Family Room</h3>
+        <img src="Garden view.png" alt="Garden View Family Room" class="accomm-image" />
+        <p>
+          Perfect for families, these rooms offer ample space and a tranquil view of
+          our lush gardens.
+        </p>
+        <ul>
+          <li>Two double beds</li>
+          <li>Private balcony with garden view</li>
+          <li>En-suite bathroom</li>
+          <li>Seating area</li>
+          <li>Complimentary Wi-Fi</li>
+          <li>Flat-screen TV</li>
+          <li>Mini-bar</li>
+        </ul>
+      </div>
+      <div class="room">
+        <h3>Premium Oceanfront Suite with Plunge Pool</h3>
+        <img src="Plunge pool.png" alt="Premium Oceanfront Suite with Plunge Pool" class="accomm-image" />
+        <p>
+          Experience the epitome of luxury. This exclusive suite features a private
+          plunge pool and unparalleled ocean views.
+        </p>
+        <ul>
+          <li>King-sized bed</li>
+          <li>Separate living and dining areas</li>
+          <li>Expansive private terrace with plunge pool and sun loungers</li>
+          <li>En-suite bathroom with Jacuzzi tub and separate rain shower</li>
+          <li>Butler service upon request</li>
+          <li>Complimentary premium Wi-Fi</li>
+          <li>Multiple smart TVs</li>
+          <li>Fully stocked mini-bar</li>
+        </ul>
+      </div>
+      <div class="room">
+        <h3>Accessible Room</h3>
+        <img src="Accessible room.png" alt="Accessible Room" class="accomm-image" />
+        <p>
+          Designed for guests with mobility needs, these rooms offer comfort and
+          accessibility features.
+        </p>
+        <ul>
+          <li>King-sized bed</li>
+          <li>Spacious layout for wheelchair accessibility</li>
+          <li>Accessible bathroom with grab bars and roll-in shower</li>
+          <li>Lowered amenities</li>
+          <li>Visual and auditory alert systems</li>
+          <li>Complimentary Wi-Fi</li>
+          <li>Flat-screen TV</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Amenities Page -->
+  <div id="amenities" class="page">
+    <h1>Amenities &amp; Activities</h1>
+    <section class="activities">
+      <h2>Activities &amp; Excursions</h2>
+      <p>
+        Discover the wonders of our tropical paradise and create unforgettable memories
+        with our curated selection of activities and excursions.
+      </p>
+      <h3>On-Site Activities</h3>
+      <h4>Relaxation &amp; Rejuvenation:</h4>
+      <ul>
+        <li><strong>Sunrise Yoga on the Beach:</strong> Start your day with a peaceful yoga session as the sun rises over the ocean. <em>(Daily, complimentary)</em></li>
+        <li><strong>Guided Meditation Sessions:</strong> Find inner peace and tranquility with our guided meditation sessions in the serene garden. <em>(Daily, complimentary)</em></li>
+        <li><strong>Beachside Relaxation:</strong> Unwind on our pristine private beach with complimentary sun loungers and umbrellas.</li>
+        <li><strong>Infinity Pool Retreat:</strong> Take a refreshing dip in our stunning infinity pool with breathtaking ocean views.</li>
+      </ul>
+      <h4>Adventure &amp; Recreation:</h4>
+      <ul>
+        <li>
+          <strong>Water Sports:</strong> Explore the crystal-clear waters with our range of water sports activities.
+          <ul>
+            <li><strong>Snorkeling:</strong> Discover vibrant coral reefs and marine life. <em>(Equipment provided, fees may apply)</em></li>
+            <li><strong>Kayaking:</strong> Paddle along the coastline and explore hidden coves. <em>(Rentals available)</em></li>
+            <li><strong>Stand-Up Paddleboarding:</strong> Enjoy a fun and invigorating workout on the water. <em>(Rentals available)</em></li>
+          </ul>
+        </li>
+        <li><strong>Beach Volleyball:</strong> Gather your friends and family for a friendly game of beach volleyball. <em>(Complimentary)</em></li>
+        <li><strong>Fitness Center:</strong> Maintain your fitness routine in our state-of-the-art fitness center. <em>(24/7 access)</em></li>
+        <li><strong>Kids' Club Activities:</strong> Let your children enjoy fun and engaging activities with our supervised Kids' Club. <em>(Daily, various activities)</em></li>
+      </ul>
+      <h3>Local Excursions</h3>
+      <p><strong>Explore the Natural Beauty:</strong></p>
+      <ul>
+        <li><strong>Coral Reef Snorkeling Tour:</strong> Embark on a guided snorkeling tour to explore the vibrant coral reefs and encounter diverse marine life. <em>(Half-day excursion, fees apply)</em></li>
+        <li><strong>Island Hopping Adventure:</strong> Discover the surrounding islands with a scenic boat tour. <em>(Full-day excursion, fees apply)</em></li>
+        <li><strong>Rainforest Hike &amp; Waterfall Visit:</strong> Immerse yourself in the lush rainforest and discover hidden waterfalls. <em>(Half-day or full-day excursion, fees apply)</em></li>
+        <li><strong>Sunset Cruise:</strong> Enjoy a romantic sunset cruise along the coastline with breathtaking views. <em>(Evening excursion, fees apply)</em></li>
+      </ul>
+      <h3>Cultural Experiences</h3>
+      <ul>
+        <li><strong>Local Village Visit:</strong> Experience the authentic culture and traditions of the local village. <em>(Half-day excursion, fees apply)</em></li>
+        <li><strong>Traditional Cooking Class:</strong> Learn to prepare local delicacies with a hands-on cooking class. <em>(Half-day excursion, fees apply)</em></li>
+        <li><strong>Cultural Performance:</strong> Enjoy a captivating performance of traditional music and dance. <em>(Evening event, fees may apply)</em></li>
+      </ul>
+      <h3>Adventure &amp; Wildlife</h3>
+      <ul>
+        <li><strong>Diving Excursions:</strong> Explore the underwater world with our certified diving instructors. <em>(Various dive sites and packages available, fees apply)</em></li>
+        <li><strong>Wildlife Sanctuary Visit:</strong> Encounter exotic wildlife at a nearby sanctuary. <em>(Half-day excursion, fees apply)</em></li>
+        <li><strong>Deep-Sea Fishing:</strong> Embark on a thrilling deep-sea fishing adventure. <em>(Half-day or full-day excursion, fees apply)</em></li>
+      </ul>
+      <h3>Booking &amp; Information</h3>
+      <ul>
+        <li>Our concierge team is available to assist you with booking activities and excursions.</li>
+        <li>Please inquire about availability and pricing for specific activities.</li>
+        <li>Transportation to and from excursion locations can be arranged.</li>
+        <li>Advance bookings are recommended, especially during peak season.</li>
+      </ul>
+      <p>
+        Create lasting memories at Shangri La Beach Resort with our diverse range of activities and excursions.
+      </p>
+    </section>
+    <!-- Spa Section -->
+    <section class="spa-section">
+      <h2>The Serenity Sanctuary - Spa Services &amp; Price List</h2>
+      <h3>Massages</h3>
+      <ul>
+        <li>
+          <strong>Shangri La Signature Massage (90 minutes): $250</strong>
+          <p>
+            A customized massage using a blend of techniques to release tension and promote deep relaxation.
+          </p>
+        </li>
+        <li>
+          <strong>Deep Tissue Massage (60 minutes / 90 minutes): $180 / $260</strong>
+          <p>Targeted massage to relieve chronic muscle tension and pain.</p>
+        </li>
+        <li>
+          <strong>Hot Stone Massage (75 minutes): $220</strong>
+          <p>
+            Soothing massage using warm basalt stones to melt away stress and improve circulation.
+          </p>
+        </li>
+        <li>
+          <strong>Aromatherapy Massage (60 minutes): $190</strong>
+          <p>Relaxing massage using essential oils to enhance mood and well-being.</p>
+        </li>
+        <li>
+          <strong>Swedish Massage (60 minutes / 90 minutes): $170 / $240</strong>
+          <p>A classic relaxation massage.</p>
+        </li>
+        <li>
+          <strong>Couples Massage (60 Minutes): $350 (per couple)</strong>
+          <p>Relax with a partner in a private room.</p>
+        </li>
+      </ul>
+      <h3>Facials</h3>
+      <ul>
+        <li>
+          <strong>Shangri La Radiance Facial (75 minutes): $210</strong>
+          <p>
+            A luxurious facial tailored to your skin type, leaving your complexion glowing.
+          </p>
+        </li>
+        <li>
+          <strong>Hydrating Facial (60 minutes): $180</strong>
+          <p>Deeply nourishing facial to replenish moisture and restore skin's vitality.</p>
+        </li>
+        <li>
+          <strong>Anti-Aging Facial (90 minutes): $270</strong>
+          <p>Advanced facial treatment to reduce fine lines and wrinkles.</p>
+        </li>
+        <li>
+          <strong>Purifying Facial (60 minutes): $160</strong>
+          <p>
+            Cleansing facial designed to remove impurities and leave a fresh feeling.
+          </p>
+        </li>
+      </ul>
+      <h3>Body Treatments</h3>
+      <ul>
+        <li>
+          <strong>Sea Salt Body Scrub (45 minutes): $150</strong>
+          <p>
+            Exfoliating treatment to remove dead skin cells and reveal smoother skin.
+          </p>
+        </li>
+        <li>
+          <strong>Tropical Body Wrap (60 minutes): $200</strong>
+          <p>
+            Hydrating and nourishing body wrap using natural ingredients.
+          </p>
+        </li>
+        <li>
+          <strong>Sun Relief Wrap (60 Minutes): $170</strong>
+          <p>
+            Soothing treatment to cool and hydrate skin after sun exposure.
+          </p>
+        </li>
+      </ul>
+      <h3>Manicures &amp; Pedicures</h3>
+      <ul>
+        <li><strong>Shangri La Deluxe Manicure (60 minutes): $90</strong></li>
+        <li><strong>Shangri La Deluxe Pedicure (75 minutes): $110</strong></li>
+        <li><strong>Classic Manicure (45 minutes): $70</strong></li>
+        <li><strong>Classic Pedicure (60 minutes): $90</strong></li>
+      </ul>
+      <h3>Enhancements (Add-ons)</h3>
+      <ul>
+        <li><strong>Scalp Massage (15 minutes): $40</strong></li>
+        <li><strong>Eye Treatment (15 minutes): $35</strong></li>
+        <li><strong>Foot Reflexology (15 minutes): $40</strong></li>
+      </ul>
+      <h3>Wellness Programs</h3>
+      <ul>
+        <li><strong>Yoga Session (60 minutes): $50 (Group), $120 (Private)</strong></li>
+        <li><strong>Meditation Session (30 minutes): $40 (Group), $100 (Private)</strong></li>
+      </ul>
+      <h3>Important Notes</h3>
+      <ul>
+        <li>Prices are subject to change without notice.</li>
+        <li>Reservations are highly recommended.</li>
+        <li>Please arrive 15 minutes prior to your scheduled appointment.</li>
+        <li>A 24-hour cancellation policy applies.</li>
+        <li>Gratuity not included.</li>
+      </ul>
+    </section>
+  </div>
+  
+  <!-- Dining Page -->
+  <div id="dining" class="page">
+    <h1>Dining</h1>
+    <section class="dining-section">
+      <h2>A Culinary Journey</h2>
+      <p>
+        Indulge in a diverse range of dining experiences at Shangri La Beach Resort.
+        From elegant fine dining to casual beachfront bites, our restaurants and bars offer
+        something to tantalize every taste bud and create unforgettable culinary moments.
+      </p>
+    </section>
+    <section class="dining-section">
+      <h2>The Beach House - Fine Dining with Ocean Views</h2>
+      <p>
+        Experience the epitome of culinary excellence at The Beach House. Our signature restaurant
+        offers breathtaking panoramic ocean views, creating a romantic and sophisticated ambiance.
+        Our talented chefs craft exquisite dishes using the freshest locally-sourced seafood and
+        premium international ingredients. Indulge in innovative flavor combinations and impeccable
+        service for a truly memorable fine dining experience. The Beach House is perfect for special
+        occasions or a luxurious evening out.
+      </p>
+      <ul>
+        <li><strong>Cuisine:</strong> Fine Dining, Seafood, International</li>
+        <li><strong>Ambiance:</strong> Elegant, Romantic, Oceanfront</li>
+        <li><strong>Dress Code:</strong> Smart Casual</li>
+        <li><strong>Reservations Recommended</strong></li>
+      </ul>
+    </section>
+    <section class="dining-section">
+      <h2>The Sand Bar - Relaxed Beachfront Grill</h2>
+      <p>
+        For a more casual and laid-back dining experience, head to The Sand Bar.
+        Situated right on the beach, this vibrant grill offers a relaxed atmosphere where
+        you can enjoy delicious food with your toes in the sand. Savor grilled specialties,
+        fresh salads, and satisfying sandwiches, all while soaking in the sun and enjoying the
+        ocean breeze. The Sand Bar is the perfect spot for a casual lunch, a refreshing afternoon
+        snack, or a relaxed dinner under the stars.
+      </p>
+      <ul>
+        <li><strong>Cuisine:</strong> Casual, Grill, Seafood, American</li>
+        <li><strong>Ambiance:</strong> Relaxed, Beachfront, Informal</li>
+        <li><strong>Dress Code:</strong> Casual</li>
+        <li><strong>No Reservations Required</strong></li>
+      </ul>
+    </section>
+    <section class="dining-section">
+      <h2>The Poolside Cafe - Refreshments and Light Bites</h2>
+      <p>
+        Stay refreshed and energized without leaving the poolside at The Poolside Cafe.
+        This convenient and casual spot offers a variety of light bites, including salads,
+        wraps, and snacks, as well as a wide selection of refreshing beverages, from tropical
+        cocktails to chilled juices. It's the perfect place to grab a quick and tasty meal or a
+        cool drink while enjoying the sun and the pool.
+      </p>
+      <ul>
+        <li><strong>Cuisine:</strong> Casual, Light Bites, Snacks, Beverages</li>
+        <li><strong>Ambiance:</strong> Relaxed, Poolside, Informal</li>
+        <li><strong>Dress Code:</strong> Casual</li>
+        <li><strong>No Reservations Required</strong></li>
+      </ul>
+    </section>
+    <section class="dining-section">
+      <h2>The Lobby Lounge - Sophisticated Cocktails and Ambiance</h2>
+      <p>
+        Unwind and socialize in the elegant setting of The Lobby Lounge. This sophisticated lounge
+        offers a curated selection of handcrafted cocktails, fine wines, and premium spirits.
+        Enjoy light appetizers and small plates in a stylish atmosphere, often accompanied by live
+        music in the evenings. The Lobby Lounge is the perfect place to start your evening, enjoy a
+        nightcap, or simply relax and soak in the refined ambiance.
+      </p>
+      <ul>
+        <li><strong>Cuisine:</strong> Beverages, Light Appetizers</li>
+        <li><strong>Ambiance:</strong> Sophisticated, Relaxed, Live Music (select evenings)</li>
+        <li><strong>Dress Code:</strong> Smart Casual</li>
+        <li><strong>No Reservations Required</strong></li>
+      </ul>
+    </section>
+    <section class="dining-section">
+      <h2>Other Dining Options</h2>
+      <ul>
+        <li>
+          <strong>Room Service:</strong> Enjoy the convenience of dining in the comfort and privacy of your own room with our extensive room service menu, available 24 hours a day.
+        </li>
+        <li>
+          <strong>Buffet Breakfast:</strong> Start your day with a sumptuous buffet breakfast featuring a wide array of hot and cold dishes, fresh fruits, pastries, and more.
+        </li>
+        <li>
+          <strong>Special Dietary Options:</strong> We are committed to accommodating your dietary needs. Please inform us of any allergies or dietary restrictions, and our chefs will be happy to prepare customized meals for you.
+        </li>
+      </ul>
+    </section>
+  </div>
+  
+  <!-- Contact Page -->
+  <div id="contact" class="page">
+    <h1>Contact Us</h1>
+    <section class="contact-details">
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:contact@shangrilaCancun.com">info@shangrilabeachresort.com</a>
+      </p>
+      <p>
+        <strong>Address:</strong>
+        55 Punta Nizuc Road, Cancun, Mexico
+      </p>
+      <p>
+        <strong>Phone:</strong>
+        +56 123 456 789
+      </p>
+    </section>
+    <section class="contact-form">
+      <p>Please fill out the form below or email us your inquiry, and we will be in touch shortly:</p>
+      <form id="contact-form">
+        <div>
+          <label for="contact-name">Name:</label>
+          <input type="text" id="contact-name" required />
+        </div>
+        <div>
+          <label for="contact-email">Email:</label>
+          <input type="email" id="contact-email" required />
+        </div>
+        <div>
+          <label for="contact-message">Message:</label>
+          <textarea id="contact-message" required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </div>
+  
+  <!-- Book Now Page -->
+  <div id="book" class="page">
+    <h1>Book Now</h1>
+    <section class="booking-section">
+      <p>Please fill in the details below to book your stay at Shangri La Beach Resort.</p>
+      <form id="booking-form">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" required />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" required />
+        </div>
+        <div>
+          <label for="checkin">Check-in:</label>
+          <input type="date" id="checkin" required />
+        </div>
+        <div>
+          <label for="checkout">Check-out:</label>
+          <input type="date" id="checkout" required />
+        </div>
+        <button type="submit">Submit Booking</button>
+      </form>
+    </section>
+  </div>
+  
+  <!-- Scripts -->
+  <script>
+    // Enhanced showPage function for a fade effect during page transitions.
+    function showPage(pageId) {
+      const pages = document.querySelectorAll(".page");
+      pages.forEach(page => {
+        page.style.opacity = "0";
+        setTimeout(() => {
+          page.classList.remove("active");
+        }, 300);
+      });
+      const targetPage = document.getElementById(pageId);
+      setTimeout(() => {
+        targetPage.classList.add("active");
+        targetPage.style.opacity = "1";
+      }, 300);
+    }
+    
+    // Set default page to 'home' on window load
+    window.onload = function () {
+      showPage("home");
+    };
+    
+    // Enhanced modal functionality for "View Details" and "Book Now"
+    document.addEventListener("DOMContentLoaded", () => {
+      // Create modal overlay container
+      const modal = document.createElement("div");
+      modal.id = "modal-overlay";
+      Object.assign(modal.style, {
+        display: "none",
+        position: "fixed",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100%",
+        backgroundColor: "rgba(0,0,0,0.6)",
+        zIndex: "1000",
+        justifyContent: "center",
+        alignItems: "center",
+        transition: "opacity 0.3s ease"
+      });
+      
+      // Create modal content container
+      const modalContent = document.createElement("div");
+      modalContent.id = "modal-content";
+      Object.assign(modalContent.style, {
+        backgroundColor: "#fff",
+        padding: "20px",
+        borderRadius: "5px",
+        maxWidth: "600px",
+        width: "80%",
+        position: "relative",
+        transform: "scale(0.8)",
+        opacity: "0",
+        transition: "transform 0.3s ease, opacity 0.3s ease"
+      });
+      modal.appendChild(modalContent);
+      
+      // Create a close button for the modal
+      const closeButton = document.createElement("span");
+      closeButton.innerHTML = "&times;";
+      Object.assign(closeButton.style, {
+        position: "absolute",
+        top: "10px",
+        right: "20px",
+        fontSize: "30px",
+        cursor: "pointer",
+        color: "#003366"
+      });
+      modalContent.appendChild(closeButton);
+      
+      // Function to close the modal and clear its content
+      const closeModal = () => {
+        modalContent.style.transform = "scale(0.8)";
+        modalContent.style.opacity = "0";
+        setTimeout(() => {
+          modal.style.display = "none";
+          const innerContent = document.getElementById("modal-inner-content");
+          if (innerContent) {
+            innerContent.remove();
+          }
+        }, 300);
+      };
+      
+      closeButton.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+      
+      document.body.appendChild(modal);
+      
+      // Function to open modal with given content
+      const openModal = (content) => {
+        const existingContent = document.getElementById("modal-inner-content");
+        if (existingContent) {
+          existingContent.remove();
+        }
+        const innerContent = document.createElement("div");
+        innerContent.id = "modal-inner-content";
+        innerContent.innerHTML = content;
+        modalContent.appendChild(innerContent);
+        modal.style.display = "flex";
+        setTimeout(() => {
+          modalContent.style.transform = "scale(1)";
+          modalContent.style.opacity = "1";
+        }, 50);
+      };
+      
+      // Replace default alert behavior on elements with class "view-details"
+      const detailEls = document.querySelectorAll(".view-details");
+      detailEls.forEach(element => {
+        element.addEventListener("click", (e) => {
+          e.preventDefault();
+          const detailsContent = element.getAttribute("data-details") || "<p>More details coming soon!</p>";
+          openModal(detailsContent);
+        });
+      });
+      
+      // Close modal on Escape key press
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.style.display === "flex") {
+          closeModal();
+        }
+      });
+      
+      // For "Book Now" button in Home page, open a booking modal instead of navigating to "Book Now" page
+      window.openBookingModal = () => {
+        const bookingForm = document.getElementById("booking-form");
+        let formHTML = "";
+        if (bookingForm) {
+          formHTML = bookingForm.outerHTML;
+        } else {
+          formHTML = "<p>Booking form not available.</p>";
+        }
+        openModal(formHTML);
+      };
+      
+      // Prevent booking form submission for demo purposes
+      document.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Booking submitted (demo)!");
+        closeModal();
+      });
+    });
+    
+    // Weather Script for Cancún, Mexico
+    function getLiveWeather() {
+      const city = "Cancun";
+      const country = "mx";
+      const apiKey = "e32c788784693d57e04f53a8b74dc83e";
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${apiKey}`;
+      
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok.");
+          }
+          return response.json();
+        })
+        .then(data => {
+          const temperature = data.main.temp;
+          const description = data.weather[0].description;
+          const humidity = data.main.humidity;
+          const windSpeed = data.wind.speed;
+          const weatherHTML = `
+            <h3>Current Weather in ${city}</h3>
+            <p><strong>Temperature:</strong> ${temperature}°C</p>
+            <p><strong>Description:</strong> ${description}</p>
+            <p><strong>Humidity:</strong> ${humidity}%</p>
+            <p><strong>Wind Speed:</strong> ${windSpeed} m/s</p>
+          `;
+          document.getElementById("weather").innerHTML = weatherHTML;
+        })
+        .catch(error => {
+          console.error("Error fetching weather data:", error);
+          document.getElementById("weather").innerHTML = "<p>Unable to fetch weather data at this time.</p>";
+        });
+    }
+    document.addEventListener("DOMContentLoaded", getLiveWeather);
+  </script>
+</body>
+</html>
